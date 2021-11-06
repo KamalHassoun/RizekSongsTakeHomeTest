@@ -1,0 +1,1 @@
+MainActivity, SongsFragment, ViewSongsFragment | Implemented the Spotify API for track search. Added Access Token Authorization and Fetch in MainActivity before proceeding with next views. Added 'DataRequestResource' class to handle errors when fetching Access Token. Created the UI for ViewSongsFragment... (Player Functionality is pending)
