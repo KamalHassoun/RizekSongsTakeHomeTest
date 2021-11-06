@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="shark_black">#FF1B1C1E</color>
+    <color name="abbey">#FF424345</color>
+    <color name="dove_gray">#FF666666</color>
+    <color name="mine_shaft">#FF3C3C3C</color>
+    <color name="gray_chateau">#FF9CA5AF</color>
+    <color name="dusty_gray">#FF9CA5AF</color>
+    <color name="silver">#FFCCCCCC</color>
+    <color name="scarpa_flow">#FF54545A</color>
+    <color name="transparent">#00000000</color>
+    <color name="raven">#FF737E89</color>
+    <color name="gallery">#FFF0F0F0</color>
+</resources>

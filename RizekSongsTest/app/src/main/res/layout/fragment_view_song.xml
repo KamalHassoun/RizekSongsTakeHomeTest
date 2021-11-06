@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="song"
+            type="com.test.rizeksongstest.models.Track" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.ViewSongFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_topHorizontal_viewSongFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_bottomHorizontal_viewSongFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image_viewSongFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gl_bottomHorizontal_viewSongFragment" />
+
+        <FrameLayout
+            android:id="@+id/fl_player_viewSongFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_blur"
+            app:layout_constraintTop_toTopOf="@id/gl_topHorizontal_viewSongFragment"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:layout_gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_song_name_viewSongFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/DefaultMargin"
+                    android:layout_marginEnd="@dimen/DefaultMargin"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/bronova_regular"
+                    android:textSize="32sp"
+                    android:text="@{song.name}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Mad Love"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_artist_name_viewSongFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/DefaultMargin"
+                    android:layout_marginEnd="@dimen/DefaultMargin"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_chateau"
+                    android:fontFamily="@font/bronova_regular"
+                    android:textSize="24sp"
+                    android:layout_marginTop="10dp"
+                    android:text="@{song.artists.size() > 0 ? song.artists[0].name : ``}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_song_name_viewSongFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Mabel"/>
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/sb_player_viewSongFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/DefaultMargin"
+                    android:layout_marginStart="@dimen/DefaultMargin"
+                    android:layout_marginTop="32dp"
+                    android:progressBackgroundTint="@color/transparent"
+                    android:thumbTint="@color/transparent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_artist_name_viewSongFragment" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="42dp"
+                    app:layout_constraintWidth_max="400dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sb_player_viewSongFragment">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_repeat_viewSongFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_repeat"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_previous_viewSongFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_previous"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_play_viewSongFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:cardElevation="6dp"
+                        app:cardCornerRadius="45dp"
+                        app:cardBackgroundColor="@color/dusty_gray">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_play_viewSongFragment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_play"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_next_viewSongFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_next"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_favourite_viewSongFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_heart"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back_viewSongFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginStart="@dimen/DefaultMargin"
+            android:layout_marginTop="@dimen/DefaultMargin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

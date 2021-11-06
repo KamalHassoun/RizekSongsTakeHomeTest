@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RizekSongsTest</string>
+
+    <string name="mainActivity_press_again_to_exit">Tap the back button again to exit</string>
+    <string name="mainActivity_error_message">Failed to fetch token from api…</string>
+    <string name="mainActivity_ok">OK</string>
+
+    <string name="songsFragment_title">Songs</string>
+    <string name="songsFragment_search_hint">Search for a song or an artist</string>
+    <string name="songsFragment_not_found">Couldn\'t find\n\"</string>
+    <string name="songsFragment_quotes">\"</string>
+    <string name="songsFragment_try_again">Try searching again using\na different spelling or keyword</string>
+</resources>
